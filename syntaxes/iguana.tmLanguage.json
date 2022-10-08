@@ -1,0 +1,84 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Iguana",
+	"patterns": [
+		{
+            "include": "#comments"
+        },
+		{
+			"include": "#action_keywords"
+		},
+		{
+			"include": "#type_keywords"
+		},
+		{
+			"include": "#numeric_literals"
+		},
+		{
+			"include": "#method"
+		},
+		{
+			"include": "#symbolics"
+		},
+		{
+			"include": "#strings"
+		}
+	],
+	"repository": {
+		"comments": {
+            "patterns": [{
+                "name": "comment.line.double-slash",
+                "match": "(\\/\\*[\\w\\'\\s\\r\\n\\*]*\\*\\/)|(\\/\\/[\\w\\s\\']*)|(\\<![\\-\\-\\s\\w\\>\\/]*\\>)"
+            }]
+        },
+		"action_keywords": {
+			"patterns": [{
+				"name": "keyword.control.iguana",
+				"match": "\\b(when|repeat|import|if|else|guard)\\b"
+			}]
+		},
+		"type_keywords": {
+			"patterns": [{
+				"name": "entity.name.tag",
+				"match": "\\b(int|true|false|const)\\b"
+			}]
+		},
+		"numeric_literals": {
+			"patterns": [{
+				"name": "constant.numeric",
+				"match": "\\b([-+]\\d|\\d+)\\b"
+			}]
+		},
+		"method": {
+			"patterns": [{
+				"name": "entity.name.function",
+				"match": "\\w+\\(|\\w+\\s+\\("
+			}]
+		},
+		"symbolics": {
+			"patterns": [{
+				"name": "markup.list",
+				"match": "->"
+			
+			}]
+		},
+		"string_format": {
+			"patterns": [{
+				"name": "variable.name",
+				"match": ""
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.iguana",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.iguana",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.i"
+}

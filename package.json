@@ -1,0 +1,29 @@
+{
+  "name": "iguana-syntax-highlighter",
+  "displayName": "Iguana syntax Highlighter",
+  "description": "Extension for highlighting Iguana language",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.72.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "iguana",
+      "aliases": ["Iguana", "iguana"],
+      "extensions": [".i",".ig",".iguana"],
+      "configuration": "./language-configuration.json",
+      "icon": {
+        "light": "./icons/dark_iguana.png",
+        "dark": "./icons/dark_iguana.png"
+      }
+    }],
+    "grammars": [{
+      "language": "iguana",
+      "scopeName": "source.i",
+      "path": "./syntaxes/iguana.tmLanguage.json"
+    }]
+  }
+}
