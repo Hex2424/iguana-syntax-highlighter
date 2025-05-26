@@ -3,6 +3,7 @@
 	"name": "Iguana",
 	"patterns": [
 		{ "include": "#comments" },
+		{ "include": "#annotations" },
 		{ "include": "#action_keywords" },
 		{ "include": "#type_keywords" },
 		{ "include": "#bit_lol_highlight" },
@@ -21,20 +22,30 @@
 		"action_keywords": {
 			"patterns": [{
 				"name": "keyword.control.iguana",
-				"match": "\\b(when|repeat|if|else|guard)\\b"
+				"match": "\\b(when|repeat|if|else|guard|ret)\\b"
 			}]
 		},
 		"type_keywords": {
 			"patterns": [{
 				"name": "entity.name.tag",
-				"match": "\\b(bit|true|false|const|none)\\b"
+				"match": "\\b(bit|true|false|const|none|this)\\b"
 			}]
+		},
+
+		"annotations": 
+		{
+		"patterns": [
+			{
+				"name": "constant.numeric",
+				"match": "@[A-Za-z_][A-Za-z0-9_]*"
+			}
+		]
 		},
 		"bit_lol_highlight": {
 			"patterns": [
 				{
 					"name": "entity.name.type",
-					"match": "(?<=bit:\\d+\\()\\s*(([A-Za-z]_*[A-Za-z0-9]*_*)+)\\s*(?=\\))"
+					"match": "(?<=bit:[0-9]*\\s*\\<)\\s*(([A-Za-z]_*[A-Za-z0-9]*_*)+)\\s*(?=\\>)"
 				}
 			]
 		},
